@@ -1,6 +1,13 @@
 class CartsController < ApplicationController
 
   def show
+    #if cart.empty?
+     # puts "******cart is empty"
+   # else 
+      #puts "*****cart has items"
+   # end
+    #puts cart.inspect
+  
   end
 
   def add_item
