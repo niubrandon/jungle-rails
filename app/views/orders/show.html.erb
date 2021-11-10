@@ -21,34 +21,36 @@
   
   <tbody>
 
-    <% LineItem.all.where("order_id = 2").each do |item| %>
+    <% LineItem.all.where("order_id = #{@order.id}").each do |item| %>
+    
     <tr>
-    <th scope="row">1</th>
-    <td><%= Product.all.where("id = #{item.product_id}")[0].name  =%></td>
-    <td>
-    <image style="height:5em" src= <%= Product.all.where("id = #{item.product_id}")[0].image  =%> >
-      </td>
-    <td><%= Product.all.where("id = #{item.product_id}")[0].description  =%></td>
-    <td><%= humanized_money_with_symbol item.item_price_cents =%></td>
-    <td><%= item.quantity =%></td>
-    <td><%= humanized_money_with_symbol item.total_price_cents =%></td>
-   
-  </tr>
+      <th scope="row">1</th>
+      <td><%= Product.all.where("id = #{item.product_id}")[0].name  %></td>
+      <td>
+      <image style="height:5em" src= <%= Product.all.where("id = #{item.product_id}")[0].image  %> >
+        </td>
+      <td><%= Product.all.where("id = #{item.product_id}")[0].description  %></td>
+      <td><%= humanized_money_with_symbol item.item_price_cents %></td>
+      <td><%= item.quantity =%></td>
+      <td><%= humanized_money_with_symbol item.total_price_cents %></td>
+    
+    </tr>
+    
     <% end %>   
   </tbody>
 </table>
 
-<p> Total cost:
-<%= humanized_money_with_symbol @order.total_cents  =%>
-</p>
-
-<p> ordered by:
-<%= @order.email  =%>
-</p>
-
-
 
   <div class="order-summary jumbotron">
+
+    <h4> Total cost:
+      <%= humanized_money_with_symbol @order.total_cents  %>
+    </h4>
+
+    <h4> ordered by:
+      <%= @order.email  %>
+    </h4>
+
     <h4>Thank you for your order!</h4>
   </div>
 
