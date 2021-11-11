@@ -1,0 +1,23 @@
+<h4>Product categories: </h4>
+
+<div class="well">
+<%= link_to '+ New Category', [ :new, :admin, :category], class: 'btn btn-info' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category</th> 
+    </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |item| %>
+    <tr>
+      <th scope="row"><%= item[:id] =%></th>
+      <td><%= item[:name] =%></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+
