@@ -1,2 +1,21 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Admin Dashboard</h1>
+
+
+<ul class="nav nav-pills nav-stacked">
+  <li class="active">
+    <a href="admin/products">
+    The total number of products we have is
+      <span class="badge pull-after"><%= @products_count =%></span>
+      
+    </a>
+  </li>
+
+  <li class="active">
+  <a href="admin/products">
+  The total number of categories we have is
+    <span class="badge pull-after"><%= @categories_count =%></span>
+    
+  </a>
+</li>
+
+</ul>
