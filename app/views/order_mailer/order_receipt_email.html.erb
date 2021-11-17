@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to jungle.com, <%= @order.email =%></h1>
+    <p>
+      You payment has been processed,
+      your order is: <%= @order.id =%><br>
+    </p>
+    <p>
+      To login to the site, just follow this link.
+    </p>
+    <p>Here is the total cost of your order: <%= humanized_money_with_symbol (@order.total_cents / 100) =%></p>
+
+    <p>Here is the details of your order: </p>
+  </body>
+</html>
+

@@ -11,8 +11,12 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-
+    
     if order.valid?
+      # sending email
+      
+      OrderMailer.order_receipt_email(order).deliver_now
+      # sending email
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
