@@ -12,7 +12,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 - email receipt and payments integrated with Stripe
 
 ## UI
-![NAV]()
+![NAV](https://github.com/niubrandon/jungle-rails/blob/master/app/assets/images/jungler.gif?raw=true)
 
 
 ## Dependencies
