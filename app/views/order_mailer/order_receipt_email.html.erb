@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to jungle.com, <%= @order.email =%></h1>
+    <p>
+      You payment has been processed,
+      your order is: <%= @order.id =%><br>
+    </p>
+    <p>Total cost of your order is: <%= humanized_money_with_symbol (@order.total_cents / 100) =%></p>
+
+    <p>Here is the details of your order: </p>
+
+      <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">name</th>
+
+          <th scope="col">description</th>
+          <th scope="col">unit price</th>
+          <th scope="col">quantity</th>
+          <th scope="col">sub-total</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+
+        <% @line_items_belong_to_order.each_with_index do |item, index| %>
+          <tr>
+            <th scope="row"><%= index + 1 =%></th>
+            <td><%= Product.all.where("id = #{item.product_id}")[0].name  %></td>
+            <td><%= Product.all.where("id = #{item.product_id}")[0].description  %></td>
+            <td><%= humanized_money_with_symbol (item.item_price_cents / 100) %></td>
+            <td><%= item.quantity =%></td>
+            <td><%= humanized_money_with_symbol (item.total_price_cents / 100) %></td>
+        
+          </tr>    
+        <% end %>   
+      </tbody>
+    </table>
+    <p>Thanks for shopping with us!</p>
+  </body>
+</html>
+
